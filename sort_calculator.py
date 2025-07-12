@@ -10,16 +10,27 @@ def sort_nums(arr):
     return arr
 
 def input_handler():
-    _inputs = input("Enter Number (1 5 32 -1..): ").split()
     try:
+        _inputs = input("Enter Numbers: ").split()
         _inputs = list(map(float, _inputs))
-    except TypeError:
+    except ValueError:
         print("Invalid input.")
+        return
     return _inputs
 
+def print_sorted(nums):
+    res = "Sorted: "
+    for num in nums:
+        res += str(num) + " "
+    print(res)
+
 def main():
-    _inputs = input_handler()
-    print(sort_nums(_inputs))
+    while 42:
+        _inputs = []
+        while not _inputs:
+            _inputs = input_handler()
+        print_sorted(sort_nums(_inputs))
+
 
 if __name__ == "__main__":
     main()
